@@ -10,11 +10,10 @@ export default class VideoPlayer {
             btn.addEventListener('click', () => {
                 if (document.querySelector('iframe#frame')) {
                     this.overlay.style.display = 'flex';
-                    this.player.playVideo();
                 } else {
                     const path = btn.getAttribute('data-url');
+
                     this.createPlayer(path);
- 
                 }
             });
         });
@@ -22,8 +21,8 @@ export default class VideoPlayer {
 
     bindCloseBtn() {
         this.close.addEventListener('click', () => {
-                this.overlay.style.display = 'none';
-                this.player.pauseVideo();
+            this.overlay.style.display = 'none';
+            this.player.stopVideo();
         });
     }
 
